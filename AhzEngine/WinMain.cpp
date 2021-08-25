@@ -3,11 +3,13 @@
 
 #include "framework.h"
 #include "WinMain.h"
+#include "Engine.h"
 
 #define MAX_LOADSTRING 100
 
 // Variables globales :
 HINSTANCE hInst;                                // instance actuelle
+HWND hWnd;
 WCHAR szTitle[MAX_LOADSTRING];                  // Texte de la barre de titre
 WCHAR szWindowClass[MAX_LOADSTRING];            // nom de la classe de fenêtre principale
 
@@ -40,6 +42,12 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINMAIN));
 
+    Engine * engine = new Engine();
+
+    
+
+    engine->init(hWnd);
+
     MSG msg;
 
     // Message loop
@@ -50,7 +58,11 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
+
+        engine->update();
     }
+
+    delete(engine);
 
     return (int) msg.wParam;
 }
@@ -96,7 +108,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
    hInst = hInstance; // Stocke le handle d'instance dans la variable globale
 
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
    if (!hWnd)
