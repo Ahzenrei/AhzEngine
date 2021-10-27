@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers de ressources\Shaders">
+      <UniqueIdentifier>{2c3665bb-0e2f-4e86-990c-24bb0937d303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\Primitive">
+      <UniqueIdentifier>{478a5713-41fc-4176-89c9-543d4d207c2e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -35,6 +41,15 @@
     </ClInclude>
     <ClInclude Include="DeviceResources.h">
       <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive.h">
+      <Filter>Fichiers d%27en-tête\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Fichiers d%27en-tête\Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="PrimitiveBase.h">
+      <Filter>Fichiers d%27en-tête\Primitive</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -71,6 +71,7 @@ void DeviceResources::init(HWND hWnd) noexcept
 	if (FAILED(hr))
 		LogError(hr);
 
+	//Retrieve back buffer from ths SwapChain
 	hr = pSwap->GetBuffer(
 		0,
 		_uuidof(ID3D11Texture2D),
@@ -79,6 +80,7 @@ void DeviceResources::init(HWND hWnd) noexcept
 	if (FAILED(hr))
 		LogError(hr);
 
+	//We create our render target view
 	hr = pDevice->CreateRenderTargetView(
 		pBackBuffer.Get(),
 		nullptr, 
@@ -88,6 +90,7 @@ void DeviceResources::init(HWND hWnd) noexcept
 	if (FAILED(hr))
 		LogError(hr);
 
+	//Retrieve back buffer description
 	pBackBuffer->GetDesc(&backBufferDesc);
 
 #if !NDEBUG
@@ -97,6 +100,7 @@ void DeviceResources::init(HWND hWnd) noexcept
 		LogError(hr);
 #endif
 
+	//Create Depth Stencil buffer description
 	D3D11_TEXTURE2D_DESC desc;
 	desc.Width = backBufferDesc.Width;
 	desc.Height = backBufferDesc.Height;
@@ -110,6 +114,7 @@ void DeviceResources::init(HWND hWnd) noexcept
 	desc.CPUAccessFlags = 0;
 	desc.MiscFlags = 0;
 
+	//Create depth stencil buffer
 	hr = pDevice->CreateTexture2D(
 		&desc, 
 		nullptr, 
@@ -119,6 +124,7 @@ void DeviceResources::init(HWND hWnd) noexcept
 	if (FAILED(hr))
 		LogError(hr);
 
+	//Create depth stencil view
 	hr = pDevice->CreateDepthStencilView(
 		pDepthStencil.Get(), 
 		nullptr, 
@@ -127,13 +133,13 @@ void DeviceResources::init(HWND hWnd) noexcept
 
 	if (FAILED(hr))
 		LogError(hr);
-
+	
+	//Set viewport
 	ZeroMemory(&viewport, sizeof(D3D11_VIEWPORT));
 	viewport.Height = (float)backBufferDesc.Height;
 	viewport.Width = (float)backBufferDesc.Width;
 	viewport.MinDepth = 0;
 	viewport.MaxDepth = 1;
-
 	pContext->RSSetViewports(
 		1,
 		&viewport

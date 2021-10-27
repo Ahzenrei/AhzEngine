@@ -145,8 +145,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Box.h" />
     <ClInclude Include="DeviceResources.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Primitive.h" />
+    <ClInclude Include="PrimitiveBase.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="WinMain.h" />
     <ClInclude Include="framework.h" />

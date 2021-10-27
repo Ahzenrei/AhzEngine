@@ -1,6 +1,7 @@
 #pragma once
 
 #include "DeviceResources.h"
+#include "Primitive.h"
 
 class Renderer
 {
