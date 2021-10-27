@@ -44,23 +44,26 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     Engine * engine = new Engine();
 
-    
-
     engine->init(hWnd);
 
     MSG msg;
 
-    // Message loop
-    while (GetMessage(&msg, nullptr, 0, 0))
+    //Engine loop
+    while (true)
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        // Message loop
+        while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE) > 0)
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
         }
 
-        engine->update();
+        engine->doFrame();
     }
+    
 
     delete(engine);
 
