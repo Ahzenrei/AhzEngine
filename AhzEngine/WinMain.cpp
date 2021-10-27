@@ -1,6 +1,5 @@
 // AhzEngine.cpp : Définit le point d'entrée de l'application.
 //
-
 #include "framework.h"
 #include "WinMain.h"
 #include "Engine.h"

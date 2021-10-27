@@ -9,5 +9,27 @@ void Engine::init(HWND hWnd) noexcept
 
 void Engine::doFrame() noexcept
 {
-	
+	updateCamera();
+
+	updateSceneElements();
+
+	renderScene();
+
+	swapBuffers();
+}
+
+void Engine::updateCamera() noexcept
+{
+}
+
+void Engine::updateSceneElements() noexcept
+{
+}
+
+void Engine::renderScene() noexcept
+{
+}
+
+void Engine::swapBuffers() noexcept
+{
 }
