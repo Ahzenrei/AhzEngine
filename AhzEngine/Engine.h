@@ -1,16 +1,19 @@
 #pragma once
 #include "Renderer.h"
+#include "DeviceResources.h"
 
 class Engine
 {
 public:
-	void init(HWND hWnd) noexcept;
-	void doFrame() noexcept;
+	void Init(HWND hWnd) noexcept;
+	void Shutdown() noexcept;
+	void DoFrame() noexcept;
 private:
-	void updateCamera() noexcept;
-	void updateSceneElements() noexcept;
-	void renderScene() noexcept;
-	void swapBuffers() noexcept;
+	void UpdateCamera() noexcept;
+	void UpdateSceneElements() noexcept;
+	void RenderScene() noexcept;
+	void SwapBuffers() noexcept;
 
 	static Renderer renderer;
+	static DeviceResources deviceResources;
 };

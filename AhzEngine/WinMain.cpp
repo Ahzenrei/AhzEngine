@@ -41,9 +41,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINMAIN));
 
-    Engine * engine = new Engine();
+    Engine engine = Engine();
 
-    engine->init(hWnd);
+    engine.Init(hWnd);
 
     MSG msg;
 
@@ -58,15 +58,18 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                 TranslateMessage(&msg);
                 DispatchMessage(&msg);
             }
+
+
+            if (msg.message == WM_QUIT)
+            {
+                engine.Shutdown();
+
+                return (int)msg.wParam;
+            }
         }
 
-        engine->doFrame();
+        engine.DoFrame();
     }
-    
-
-    delete(engine);
-
-    return (int) msg.wParam;
 }
 
 

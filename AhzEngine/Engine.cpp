@@ -1,35 +1,46 @@
 #include "Engine.h"
 
 Renderer Engine::renderer;
+DeviceResources Engine::deviceResources;
 
-void Engine::init(HWND hWnd) noexcept
+void Engine::Init(HWND hWnd) noexcept
 {
-	renderer.init(hWnd);
+	deviceResources.Init(hWnd);
+	renderer.Init(&deviceResources);
 }
 
-void Engine::doFrame() noexcept
+void Engine::Shutdown() noexcept
 {
-	updateCamera();
-
-	updateSceneElements();
-
-	renderScene();
-
-	swapBuffers();
+	renderer.Shutdown();
+	deviceResources.Shutdown();
 }
 
-void Engine::updateCamera() noexcept
+void Engine::DoFrame() noexcept
+{
+	UpdateCamera();
+
+	UpdateSceneElements();
+
+	RenderScene();
+
+	SwapBuffers();
+}
+
+void Engine::UpdateCamera() noexcept
 {
 }
 
-void Engine::updateSceneElements() noexcept
+void Engine::UpdateSceneElements() noexcept
 {
+	renderer.box->Update();
 }
 
-void Engine::renderScene() noexcept
+void Engine::RenderScene() noexcept
 {
+	renderer.Render();
 }
 
-void Engine::swapBuffers() noexcept
+void Engine::SwapBuffers() noexcept
 {
+	deviceResources.PresentBackBuffer();
 }

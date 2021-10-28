@@ -1,21 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Fichiers de ressources">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Fichiers de ressources\Shaders">
-      <UniqueIdentifier>{2c3665bb-0e2f-4e86-990c-24bb0937d303}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Core">
       <UniqueIdentifier>{c664953c-9b48-446e-9c45-7cb14089222b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Core\Graphics">
       <UniqueIdentifier>{8db4cf61-4d04-49ae-9f0b-9e97ce540b96}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Core\Graphics\Primitve">
-      <UniqueIdentifier>{478a5713-41fc-4176-89c9-543d4d207c2e}</UniqueIdentifier>
     </Filter>
     <Filter Include="System">
       <UniqueIdentifier>{41c861cc-bf16-40d4-9810-f69ac48c2dbb}</UniqueIdentifier>
@@ -23,17 +13,15 @@
     <Filter Include="Core\Utils">
       <UniqueIdentifier>{d3c342ca-a859-4101-a34a-0ef81927d257}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources\Shaders">
+      <UniqueIdentifier>{2c3665bb-0e2f-4e86-990c-24bb0937d303}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Primitive.h">
-      <Filter>Core\Graphics\Primitve</Filter>
-    </ClInclude>
-    <ClInclude Include="Box.h">
-      <Filter>Core\Graphics\Primitve</Filter>
-    </ClInclude>
-    <ClInclude Include="PrimitiveBase.h">
-      <Filter>Core\Graphics\Primitve</Filter>
-    </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>Core\Graphics</Filter>
     </ClInclude>
@@ -75,6 +63,9 @@
     </ClInclude>
     <ClInclude Include="Vector3.h">
       <Filter>Core\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Core\Graphics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -121,5 +112,16 @@
     <ClCompile Include="Vector3.cpp">
       <Filter>Core\Utils</Filter>
     </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Core\Graphics</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="BoxVertexShader.hlsl">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </FxCompile>
+    <FxCompile Include="BoxPixelShader.hlsl">
+      <Filter>Fichiers de ressources\Shaders</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

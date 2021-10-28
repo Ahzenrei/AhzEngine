@@ -5,9 +5,19 @@
 
 class DeviceResources
 {
-
 public:
-	void init(HWND hWnd) noexcept;
+
+	void Init(HWND hWnd) noexcept;
+	void Shutdown() noexcept;
+	ID3D11Device* GetDevice() noexcept;
+	ID3D11DeviceContext* GetDeviceContext() noexcept;
+	IDXGISwapChain* GetSwapChain() noexcept;
+	ID3D11RenderTargetView* GetRenderTarget() noexcept;
+	ID3D11DepthStencilView* GetDepthStencil() noexcept;
+
+	float GetAspectRatio() noexcept;
+	void PresentBackBuffer() noexcept;
+
 
 private:
 	Microsoft::WRL::ComPtr<ID3D11Device>			pDevice;

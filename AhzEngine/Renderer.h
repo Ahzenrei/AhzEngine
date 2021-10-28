@@ -1,13 +1,16 @@
 #pragma once
 
 #include "DeviceResources.h"
-#include "Primitive.h"
+#include "Box.h"
 
 class Renderer
 {
 public:
-	void init(HWND hWnd) noexcept;
-private:
-	static DeviceResources deviceResources;
+	bool IsInitialized() const noexcept;
+	void Init(DeviceResources*) noexcept;
+	void Shutdown() noexcept;
+	void Render();
+	DeviceResources* pDeviceResources = nullptr;
+	Box* box = nullptr;
 };
 

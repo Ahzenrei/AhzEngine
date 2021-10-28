@@ -16,7 +16,7 @@ void LogError(HRESULT hr)
 	PostQuitMessage(-1);
 }
 
-void DeviceResources::init(HWND hWnd) noexcept
+void DeviceResources::Init(HWND hWnd) noexcept
 {
 	//Swap chain description
 	DXGI_SWAP_CHAIN_DESC sd;
@@ -144,4 +144,50 @@ void DeviceResources::init(HWND hWnd) noexcept
 		1,
 		&viewport
 	);
+}
+
+void DeviceResources::Shutdown() noexcept
+{
+	pDepthStencilView.Reset();
+	pDepthStencil.Reset();
+	pRenderTarget.Reset();
+	pBackBuffer.Reset();
+	pSwap.Reset();
+	pContext.Reset();
+	pDevice.Reset();
+}
+
+ID3D11Device* DeviceResources::GetDevice() noexcept
+{
+	return pDevice.Get();
+}
+
+ID3D11DeviceContext* DeviceResources::GetDeviceContext() noexcept
+{
+	return pContext.Get();
+}
+
+IDXGISwapChain* DeviceResources::GetSwapChain() noexcept
+{
+	return pSwap.Get();
+}
+
+ID3D11RenderTargetView* DeviceResources::GetRenderTarget() noexcept
+{
+	return pRenderTarget.Get();
+}
+
+ID3D11DepthStencilView* DeviceResources::GetDepthStencil() noexcept
+{
+	return pDepthStencilView.Get();
+}
+
+float DeviceResources::GetAspectRatio() noexcept
+{
+	return viewport.Width / viewport.Height;
+}
+
+void DeviceResources::PresentBackBuffer() noexcept
+{
+	pSwap->Present(1, 0);
 }
