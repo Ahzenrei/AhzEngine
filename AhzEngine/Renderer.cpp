@@ -6,6 +6,4 @@ DeviceResources Renderer::deviceResources;
 void Renderer::init(HWND hWnd) noexcept
 {
 	deviceResources.init(hWnd);
-
-	Box * b = new Box();
 }
