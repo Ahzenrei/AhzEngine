@@ -48,7 +48,7 @@ void Box::CreateShaders(ID3D11Device* device)
 	);
 
 	CD3D11_BUFFER_DESC cbDesc(
-		sizeof(ConstantBufferStruct),
+		sizeof(Material::ConstantBufferStruct),
 		D3D11_BIND_CONSTANT_BUFFER
 	);
 
@@ -64,7 +64,7 @@ void Box::CreateMesh(ID3D11Device* device)
 	HRESULT hr = S_OK;
 
 	// Create cube geometry.
-	VertexPositionColor CubeVertices[] =
+	VertexData CubeVertices[] =
 	{
 		{DirectX::XMFLOAT3(-0.5f,-0.5f,-0.5f), DirectX::XMFLOAT3(0,   0,   0),},
 		{DirectX::XMFLOAT3(-0.5f,-0.5f, 0.5f), DirectX::XMFLOAT3(0,   0,   1),},

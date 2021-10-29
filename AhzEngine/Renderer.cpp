@@ -59,7 +59,7 @@ void Renderer::Render()
     );
 
     // Set up the IA stage by setting the input topology and layout.
-    UINT stride = sizeof(Box::VertexPositionColor);
+    UINT stride = sizeof(Box::VertexData);
     UINT offset = 0;
 
     context->IASetVertexBuffers(

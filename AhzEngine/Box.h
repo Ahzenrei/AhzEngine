@@ -4,23 +4,17 @@
 #include <d3d11.h>
 #include <DirectXMath.h>
 #include "d3dcompiler.h"
+#include "Mesh.h"
+#include "Material.h"
 
 class Box
 {
 public:
-
-	struct ConstantBufferStruct {
-		DirectX::XMFLOAT4X4 world;
-		DirectX::XMFLOAT4X4 view;
-		DirectX::XMFLOAT4X4 projection;
-	};
-
-	struct VertexPositionColor
+	struct VertexData
 	{
 		DirectX::XMFLOAT3 pos;
 		DirectX::XMFLOAT3 color;
 	};
-
 
 	Box() = delete;
 	Box(ID3D11Device* device);
@@ -30,7 +24,7 @@ public:
 	void CreateViewAndPerspective(ID3D11Device* device);
 	void Update();
 
-	ConstantBufferStruct constantBufferData;
+	Material::ConstantBufferStruct constantBufferData;
 	int indexCount;
 	int frameCount;
 
