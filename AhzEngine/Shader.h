@@ -10,17 +10,15 @@ class Shader
 {
 public:
 	Shader() = delete;
-	Shader(char* vertexShaderPath, char* pixelShaderPath) noexcept;
+	Shader(const wchar_t* vertexShaderPath, const wchar_t* pixelShaderPath, ID3D11Device* device) noexcept;
+	Shader& operator=(const Shader& source) = delete;
+	Shader(const Shader&) = delete;
+	Shader(Shader&&) = default;
+	~Shader() = default;
 
-	HRESULT LoadShadersToGPU(ID3D11Device*) noexcept;
-
-private:
-	std::unique_ptr<BYTE> vsBytes;
-	size_t vsBytesRead = 0;
-	std::unique_ptr<BYTE> psBytes;
-	size_t psBytesRead = 0;
 
 	Microsoft::WRL::ComPtr<ID3D11VertexShader>      pVertexShader;
 	Microsoft::WRL::ComPtr<ID3D11PixelShader>       pPixelShader;
+	Microsoft::WRL::ComPtr<ID3D11InputLayout>		pInputLayout;
 };
 

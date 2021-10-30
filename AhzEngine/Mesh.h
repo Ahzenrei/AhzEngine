@@ -12,20 +12,20 @@ public:
 	struct VertexData
 	{
 		DirectX::XMFLOAT3 pos;
-		DirectX::XMFLOAT3 color;
-		DirectX::XMFLOAT3 uv;
+		DirectX::XMFLOAT4 color;
+		DirectX::XMFLOAT2 uv;
 		DirectX::XMFLOAT3 normal;
 	};
 
-	Mesh(std::unique_ptr<VertexData>, std::unique_ptr<std::vector<unsigned short>>) noexcept;
+	Mesh(std::vector<VertexData>, std::vector<unsigned short>) noexcept;
 
 	HRESULT LoadDataToGPU(ID3D11Device *) noexcept;
 	//void UnloadDataFromGPU() noexcept;
 
-private:
 
-	std::unique_ptr<VertexData> pVertices;
-	std::unique_ptr<std::vector<unsigned short>> pIndices;
+
+	std::vector<VertexData> vertices;
+	std::vector<unsigned short> indices;
 	bool dataLoaded = false;
 	Microsoft::WRL::ComPtr<ID3D11Buffer>		pVertexBuffer = nullptr;
 	Microsoft::WRL::ComPtr<ID3D11Buffer>		pIndexBuffer = nullptr;

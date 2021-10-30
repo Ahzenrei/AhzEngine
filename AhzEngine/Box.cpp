@@ -5,7 +5,6 @@ Box::Box(ID3D11Device* device)
 {
 	CreateShaders(device);
 	CreateMesh(device);
-	CreateViewAndPerspective(device);
 }
 
 void Box::CreateShaders(ID3D11Device* device)
@@ -45,17 +44,6 @@ void Box::CreateShaders(ID3D11Device* device)
 		pBlobByte->GetBufferSize(),
 		nullptr,
 		&pPixelShader
-	);
-
-	CD3D11_BUFFER_DESC cbDesc(
-		sizeof(Material::ConstantBufferStruct),
-		D3D11_BIND_CONSTANT_BUFFER
-	);
-
-	hr = device->CreateBuffer(
-		&cbDesc,
-		nullptr,
-		pConstantBuffer.GetAddressOf()
 	);
 }
 
@@ -138,56 +126,56 @@ void Box::CreateMesh(ID3D11Device* device)
 	);
 }
 
-void Box::CreateViewAndPerspective(ID3D11Device* device)
-{
-	// Use DirectXMath to create view and perspective matrices.
-
-	DirectX::XMVECTOR eye = DirectX::XMVectorSet(0.0f, 0.7f, 1.5f, 0.f);
-	DirectX::XMVECTOR at = DirectX::XMVectorSet(0.0f, -0.1f, 0.0f, 0.f);
-	DirectX::XMVECTOR up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.f);
-
-	DirectX::XMStoreFloat4x4(
-		&constantBufferData.view,
-		DirectX::XMMatrixTranspose(
-			DirectX::XMMatrixLookAtRH(
-				eye,
-				at,
-				up
-			)
-		)
-	);
-
-	float aspectRatioX = 4.f/3.f;
-	float aspectRatioY = 1;
-
-	DirectX::XMStoreFloat4x4(
-		&constantBufferData.projection,
-		DirectX::XMMatrixTranspose(
-			DirectX::XMMatrixPerspectiveFovRH(
-				2.0f * std::atan(std::tan(DirectX::XMConvertToRadians(70) * 0.5f) / aspectRatioY),
-				aspectRatioX,
-				0.01f,
-				100.0f
-			)
-		)
-	);
-
-}
-
-void Box::Update()
-{
-	// Rotate the cube 1 degree per frame.
-	DirectX::XMStoreFloat4x4(
-		&constantBufferData.world,
-		DirectX::XMMatrixTranspose(
-			DirectX::XMMatrixRotationY(
-				DirectX::XMConvertToRadians(
-					(float)frameCount++
-				)
-			)
-		)
-	);
-
-	if (frameCount == MAXUINT)  frameCount = 0;
-}
+//void Box::CreateViewAndPerspective(ID3D11Device* device)
+//{
+//	// Use DirectXMath to create view and perspective matrices.
+//
+//	DirectX::XMVECTOR eye = DirectX::XMVectorSet(0.0f, 0.7f, 1.5f, 0.f);
+//	DirectX::XMVECTOR at = DirectX::XMVectorSet(0.0f, -0.1f, 0.0f, 0.f);
+//	DirectX::XMVECTOR up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.f);
+//
+//	DirectX::XMStoreFloat4x4(
+//		&constantBufferData.view,
+//		DirectX::XMMatrixTranspose(
+//			DirectX::XMMatrixLookAtRH(
+//				eye,
+//				at,
+//				up
+//			)
+//		)
+//	);
+//
+//	float aspectRatioX = 4.f/3.f;
+//	float aspectRatioY = 1;
+//
+//	DirectX::XMStoreFloat4x4(
+//		&constantBufferData.projection,
+//		DirectX::XMMatrixTranspose(
+//			DirectX::XMMatrixPerspectiveFovRH(
+//				2.0f * std::atan(std::tan(DirectX::XMConvertToRadians(70) * 0.5f) / aspectRatioY),
+//				aspectRatioX,
+//				0.01f,
+//				100.0f
+//			)
+//		)
+//	);
+//
+//}
+//
+//void Box::Update()
+//{
+//	// Rotate the cube 1 degree per frame.
+//	DirectX::XMStoreFloat4x4(
+//		&constantBufferData.world,
+//		DirectX::XMMatrixTranspose(
+//			DirectX::XMMatrixRotationY(
+//				DirectX::XMConvertToRadians(
+//					(float)frameCount++
+//				)
+//			)
+//		)
+//	);
+//
+//	if (frameCount == MAXUINT)  frameCount = 0;
+//}
 

@@ -7,10 +7,9 @@
 class MeshComponent : Component
 {
 public:
-	MeshComponent(Mesh& _mesh, Material& _mat) noexcept;
+	MeshComponent(Mesh * _mesh, Material * _mat) noexcept;
 	~MeshComponent() = default;
-private:
-	Mesh& mesh;
-	Material& mat;
+	Mesh * pMesh;
+	Material * pMat;
 };
 

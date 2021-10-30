@@ -2,7 +2,8 @@
 
 #include "DeviceResources.h"
 #include "Box.h"
-#include <unordered_map>
+#include "MeshComponent.h"
+#include <vector>
 
 class Renderer
 {
@@ -12,7 +13,6 @@ public:
 	void Shutdown() noexcept;
 	void Render();
 	DeviceResources* pDeviceResources = nullptr;
-	Box* box = nullptr;
-
+	std::vector<MeshComponent*> meshes;
 };
 

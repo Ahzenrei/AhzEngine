@@ -21,10 +21,9 @@ public:
 
 	void CreateShaders(ID3D11Device* device);
 	void CreateMesh(ID3D11Device* device);
-	void CreateViewAndPerspective(ID3D11Device* device);
-	void Update();
+	//void CreateViewAndPerspective(ID3D11Device* device);
+	//void Update();
 
-	Material::ConstantBufferStruct constantBufferData;
 	int indexCount;
 	int frameCount;
 

@@ -1,14 +1,9 @@
-cbuffer ModelViewProjectionConstantBuffer : register(b0)
-{
-    matrix model;
-    matrix view;
-    matrix projection;
-};
-
 struct VS_INPUT
 {
-    float3 vPos   : POSITION;
-    float3 vColor : COLOR0;
+    float3 vPos     : POSITION;
+    float4 vColor   : COLOR0;
+    float2 vUV      : UV;
+    float3 vNormal  : NORMAL;
 };
 
 struct VS_OUTPUT
@@ -23,14 +18,10 @@ VS_OUTPUT main(VS_INPUT input) // main is the default function name
 
     float4 pos = float4(input.vPos, 1.0f);
 
-    // Transform the position from object space to homogeneous projection space
-    pos = mul(pos, model);
-    pos = mul(pos, view);
-    pos = mul(pos, projection);
     Output.Position = pos;
 
     // Just pass through the color data
-    Output.Color = float4(input.vColor, 1.0f);
+    Output.Color = input.vColor;
 
     return Output;
 }
