@@ -157,6 +157,13 @@ void Renderer::Render()
             0
         );
 
+        context->VSSetConstantBuffers(
+            0,
+            1,
+            pCamera.GetAddressOf()
+        );
+
+
         // Set up the pixel shader stage.
         context->PSSetShader(
             mesh->pMat->shader->pPixelShader.Get(),
@@ -164,15 +171,9 @@ void Renderer::Render()
             0
         );
 
-        context->VSSetConstantBuffers(
-            0,
-            1,
-            pCamera.GetAddressOf()
-        );
-
         // Calling Draw tells Direct3D to start sending commands to the graphics device.
         context->DrawIndexed(
-            (UINT)mesh->pMesh->vertices.size(),
+            (UINT)mesh->pMesh->indices.size(),
             0,
             0
         );
