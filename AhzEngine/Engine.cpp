@@ -28,6 +28,7 @@ void Engine::DoFrame() noexcept
 
 void Engine::UpdateCamera() noexcept
 {
+	renderer.UpdateCamera();
 }
 
 void Engine::UpdateSceneElements() noexcept

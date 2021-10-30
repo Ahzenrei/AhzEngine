@@ -1,3 +1,10 @@
+cbuffer ViewProjectionConstantBuffer : register(b0)
+{
+    matrix Model;
+    matrix View;
+    matrix Projection;
+};
+
 struct VS_INPUT
 {
     float3 vPos     : POSITION;
@@ -17,7 +24,9 @@ VS_OUTPUT main(VS_INPUT input) // main is the default function name
     VS_OUTPUT Output;
 
     float4 pos = float4(input.vPos, 1.0f);
-
+    pos = mul(pos, Model);
+    pos = mul(pos, View);
+    pos = mul(pos, Projection);
     Output.Position = pos;
 
     // Just pass through the color data
