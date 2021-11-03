@@ -33,7 +33,7 @@ void Engine::UpdateCamera() noexcept
 
 void Engine::UpdateSceneElements() noexcept
 {
-	//renderer.box->Update();
+
 }
 
 void Engine::RenderScene() noexcept

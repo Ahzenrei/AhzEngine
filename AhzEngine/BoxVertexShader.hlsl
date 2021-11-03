@@ -1,9 +1,14 @@
 cbuffer ViewProjectionConstantBuffer : register(b0)
 {
-    matrix Model;
+//    matrix Model;
     matrix View;
     matrix Projection;
 };
+
+cbuffer TransformConstantBuffer : register(b1)
+{
+    matrix Model;
+}
 
 struct VS_INPUT
 {

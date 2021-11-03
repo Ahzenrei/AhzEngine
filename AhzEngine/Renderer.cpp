@@ -50,7 +50,7 @@ void Renderer::Init(DeviceResources* _pDeviceResources) noexcept
     mesh->LoadDataToGPU(pDeviceResources->GetDevice());
     MeshComponent* meshcomp = new MeshComponent(mesh, mat);
 
-    meshes.push_back(meshcomp);
+    sceneElementsToDraw.push_back(meshcomp);
 
     CreateViewAndPerspective();
 
@@ -75,9 +75,9 @@ void Renderer::Init(DeviceResources* _pDeviceResources) noexcept
 
 void Renderer::Shutdown() noexcept
 {
-    delete(meshes[0]->pMat->shader);
-    delete(meshes[0]->pMat);
-    delete(meshes[0]->pMesh);
+    delete(sceneElementsToDraw[0]->pMat->shader);
+    delete(sceneElementsToDraw[0]->pMat);
+    delete(sceneElementsToDraw[0]->pMesh);
 }
 
 bool Renderer::IsInitialized() const noexcept
@@ -124,7 +124,7 @@ void Renderer::Render()
         depthStencil
     );
 
-    for (const auto& mesh : meshes)
+    for (const auto& mesh : sceneElementsToDraw)
     {
         // Set up the IA stage by setting the input topology and layout.
         UINT stride = sizeof(Mesh::VertexData);
@@ -219,17 +219,17 @@ void Renderer::CreateViewAndPerspective()
 
 void Renderer::UpdateCamera()
 {
-	// Rotate the cube 1 degree per frame.
-	DirectX::XMStoreFloat4x4(
-		&camera.world,
-		DirectX::XMMatrixTranspose(
-			DirectX::XMMatrixRotationY(
-				DirectX::XMConvertToRadians(
-					(float)frameCount++
-				)
-			)
-		)
-	);
+	//// Rotate the cube 1 degree per frame.
+	//DirectX::XMStoreFloat4x4(
+	//	&camera.world,
+	//	DirectX::XMMatrixTranspose(
+	//		DirectX::XMMatrixRotationY(
+	//			DirectX::XMConvertToRadians(
+	//				(float)frameCount++
+	//			)
+	//		)
+	//	)
+	//);
 
-	if (frameCount == MAXUINT)  frameCount = 0;
+	//if (frameCount == MAXUINT)  frameCount = 0;
 }

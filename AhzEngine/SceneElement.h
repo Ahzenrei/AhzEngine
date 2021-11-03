@@ -1,22 +1,30 @@
 #pragma once
 
 #include <vector>
-#include "Component.h"
+#include "MeshComponent.h"
 #include "AhzMath.h"
+#include <DirectXMath.h>
+#include <unordered_map>
 
 class SceneElement
 {
 public:
+
+	struct Transform
+	{
+		DirectX::XMVECTOR  position = { 0,0,0,1 };
+		DirectX::XMVECTOR  rotation = { 0,0,0,1 };
+		DirectX::XMVECTOR  scale	= { 1,1,1,1 };
+	};
+
+	void AddComponent(Component component) noexcept;
+
 	SceneElement() noexcept = default;
 	~SceneElement() noexcept = default;
 
 private:
-	std::vector<Component> components;
-
-	//To do : make a transform class
-	Vector3 position = Vector3(0,0,0);
-	Vector3 rotation = Vector3(0,0,0);
-	Vector3 scale = Vector3(1,1,1);
+	std::unordered_map<Component::ComponentType,Component> components;
+	Transform transform;
 
 };
 

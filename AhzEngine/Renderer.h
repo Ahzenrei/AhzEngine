@@ -4,6 +4,7 @@
 #include "MeshComponent.h"
 #include <vector>
 #include <DirectXMath.h>
+#include "SceneElement.h"
 
 class Renderer
 {
@@ -11,7 +12,7 @@ public:
 
 	struct Camera
 	{
-		DirectX::XMFLOAT4X4 world;
+		//DirectX::XMFLOAT4X4 world;
 		DirectX::XMFLOAT4X4 view;
 		DirectX::XMFLOAT4X4 projection;
 	};
@@ -22,8 +23,10 @@ public:
 	void Render();
 	void CreateViewAndPerspective();
 	void UpdateCamera();
+
 	DeviceResources* pDeviceResources = nullptr;
-	std::vector<MeshComponent*> meshes;
+
+	std::vector<SceneElement*> sceneElementsToDraw;
 
 	Camera camera;
 	int frameCount = 0;
