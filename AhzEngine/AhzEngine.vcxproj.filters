@@ -70,6 +70,12 @@
     <ClInclude Include="Shader.h">
       <Filter>Core\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="MeshManager.h">
+      <Filter>Core\Graphics</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>Core\Graphics</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AhzEngine.rc">
@@ -119,6 +125,12 @@
       <Filter>Core\Graphics</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
+      <Filter>Core\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshManager.cpp">
+      <Filter>Core\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderManager.cpp">
       <Filter>Core\Graphics</Filter>
     </ClCompile>
   </ItemGroup>

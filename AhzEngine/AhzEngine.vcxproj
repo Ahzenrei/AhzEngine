@@ -153,9 +153,11 @@
     <ClInclude Include="Material.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MeshComponent.h" />
+    <ClInclude Include="MeshManager.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SceneElement.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="WinMain.h" />
     <ClInclude Include="framework.h" />
@@ -170,9 +172,11 @@
     <ClCompile Include="Material.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="MeshComponent.cpp" />
+    <ClCompile Include="MeshManager.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="SceneElement.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="ShaderManager.cpp" />
     <ClCompile Include="Vector3.cpp" />
     <ClCompile Include="WinMain.cpp" />
   </ItemGroup>

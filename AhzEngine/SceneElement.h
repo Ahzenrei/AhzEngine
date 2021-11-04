@@ -9,22 +9,11 @@
 class SceneElement
 {
 public:
-
-	struct Transform
-	{
-		DirectX::XMVECTOR  position = { 0,0,0,1 };
-		DirectX::XMVECTOR  rotation = { 0,0,0,1 };
-		DirectX::XMVECTOR  scale	= { 1,1,1,1 };
-	};
-
-	void AddComponent(Component component) noexcept;
-
-	SceneElement() noexcept = default;
-	~SceneElement() noexcept = default;
+	void AddComponent(Component * component) noexcept;
+	bool HasComponent(Component::ComponentType) const noexcept;
+	Component* GetComponent(Component::ComponentType) noexcept;
 
 private:
-	std::unordered_map<Component::ComponentType,Component> components;
-	Transform transform;
-
+	std::unordered_map<Component::ComponentType, Component*> components;
 };
 

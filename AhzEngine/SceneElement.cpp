@@ -1,6 +1,17 @@
 #include "SceneElement.h"
 
-void AddComponent(Component component) noexcept
+void SceneElement::AddComponent(Component * component) noexcept
 {
-	components.insert(component.GetComponentType(), component);
+	components.insert({ component->GetComponentType(), component });
+}
+
+bool SceneElement::HasComponent(Component::ComponentType type) const noexcept
+{
+	return components.find(type) != components.end();
+}
+
+Component* SceneElement::GetComponent(Component::ComponentType type) noexcept
+{
+	auto elementFound = components.find(type);
+	return elementFound != components.end() ? elementFound->second : nullptr;
 }

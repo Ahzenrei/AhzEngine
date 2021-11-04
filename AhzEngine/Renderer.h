@@ -12,7 +12,6 @@ public:
 
 	struct Camera
 	{
-		//DirectX::XMFLOAT4X4 world;
 		DirectX::XMFLOAT4X4 view;
 		DirectX::XMFLOAT4X4 projection;
 	};
@@ -20,16 +19,15 @@ public:
 	bool IsInitialized() const noexcept;
 	void Init(DeviceResources*) noexcept;
 	void Shutdown() noexcept;
-	void Render();
-	void CreateViewAndPerspective();
-	void UpdateCamera();
+	void Render() noexcept;
+	void CreateViewAndPerspective() noexcept;
+	void UpdateCamera() noexcept;
+	void AddElementToDraw(SceneElement * element) noexcept;
 
 	DeviceResources* pDeviceResources = nullptr;
 
 	std::vector<SceneElement*> sceneElementsToDraw;
 
 	Camera camera;
-	int frameCount = 0;
-	Microsoft::WRL::ComPtr<ID3D11Buffer>	pCamera;
+	Microsoft::WRL::ComPtr<ID3D11Buffer> pCamera;
 };
-

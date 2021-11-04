@@ -14,6 +14,11 @@ private:
 	void RenderScene() noexcept;
 	void SwapBuffers() noexcept;
 
+	//Here until I make an appropriate class
+	SceneElement* element = nullptr;
+
+	int frameCount = 0;
+
 	static Renderer renderer;
 	static DeviceResources deviceResources;
 };

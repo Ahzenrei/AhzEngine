@@ -4,14 +4,19 @@
 #include "Mesh.h"
 #include "Material.h"
 
-class MeshComponent : Component
+class MeshComponent : public Component
 {
 public:
-	MeshComponent(Mesh * _mesh, Material * _mat) noexcept;
-	~MeshComponent() = default;
+	MeshComponent(Mesh * _mesh, Material * _mat, ID3D11Device* device) noexcept;
+	~MeshComponent();
 
-	inline ComponentType GetComponentType() const noexcept override;
+	ComponentType GetComponentType() const noexcept override;
+	void UpdateModelMatrice(DirectX::XMMATRIX _model) noexcept;
+	DirectX::XMFLOAT4X4 GetModelMatrice() noexcept;
 
 	Mesh * pMesh;
 	Material * pMat;
+
+	DirectX::XMFLOAT4X4 model;
+	Microsoft::WRL::ComPtr<ID3D11Buffer> pModel;
 };
