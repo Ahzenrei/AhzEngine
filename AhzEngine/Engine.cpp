@@ -51,10 +51,10 @@ void Engine::Init(HWND hWnd) noexcept
 
 	MeshComponent* meshcomp = new MeshComponent(mesh, mat, deviceResources.GetDevice());
 
-	element = new SceneElement();
-	element->AddComponent(dynamic_cast<Component*>(meshcomp));
+	cube = new SceneElement();
+	cube->AddComponent(dynamic_cast<Component*>(meshcomp));
 
-	renderer.AddElementToDraw(element);
+	renderer.AddElementToDraw(cube);
 }
 
 void Engine::Shutdown() noexcept
@@ -62,12 +62,12 @@ void Engine::Shutdown() noexcept
 	renderer.Shutdown();
 	deviceResources.Shutdown();
 
-	auto mesh = dynamic_cast<MeshComponent*>(element->GetComponent(Component::ComponentType::Mesh));
+	auto mesh = dynamic_cast<MeshComponent*>(cube->GetComponent(Component::ComponentType::Mesh));
 	delete(mesh->pMat->shader);
 	delete(mesh->pMat);
 	delete(mesh->pMesh);
 	delete(mesh);
-	delete(element);
+	delete(cube);
 }
 
 void Engine::DoFrame() noexcept
@@ -89,7 +89,7 @@ void Engine::UpdateCamera() noexcept
 void Engine::UpdateSceneElements() noexcept
 {
 	// Rotate the cube 1 degree per frame.
-	auto mesh = dynamic_cast<MeshComponent*>(element->GetComponent(Component::ComponentType::Mesh));
+	auto mesh = dynamic_cast<MeshComponent*>(cube->GetComponent(Component::ComponentType::Mesh));
 	mesh->UpdateModelMatrice(
 		DirectX::XMMatrixTranspose(
 			DirectX::XMMatrixRotationY(

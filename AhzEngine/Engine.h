@@ -15,7 +15,9 @@ private:
 	void SwapBuffers() noexcept;
 
 	//Here until I make an appropriate class
-	SceneElement* element = nullptr;
+	SceneElement* cube;
+
+	std::vector<SceneElement> sceneElements;
 
 	int frameCount = 0;
 
