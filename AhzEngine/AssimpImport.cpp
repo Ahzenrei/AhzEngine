@@ -1,8 +1,7 @@
 #include "AssimpImport.h"
-#include <assimp/cimport.h>
-#include <assimp/scene.h> 
+#include <assimp/Importer.hpp>
 #include <assimp/postprocess.h>
-
+#include <assimp/scene.h>
 
 SceneElement* AssimpImport::ImportFBX(const std::string& pFile, ID3D11Device* device) noexcept
 {

@@ -15,7 +15,7 @@ private:
 	void SwapBuffers() noexcept;
 
 	//Here until I make an appropriate class
-	SceneElement* cube;
+	SceneElement* cube = nullptr;
 
 	std::vector<SceneElement> sceneElements;
 
