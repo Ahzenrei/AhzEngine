@@ -21,6 +21,7 @@ struct VS_OUTPUT
 {
     float4 Position : SV_POSITION;  // interpolated vertex position (system value)
     float4 Color    : COLOR0;       // interpolated diffuse color
+    float4 Normal   : NORMAL0;
 };
 
 VS_OUTPUT main(VS_INPUT input) // main is the default function name
@@ -37,6 +38,7 @@ VS_OUTPUT main(VS_INPUT input) // main is the default function name
 
     // Just pass through the color data
     Output.Color = input.vColor;
+    Output.Normal = float4(input.vNormal,1.0f);
 
     return Output;
 }

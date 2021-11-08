@@ -76,6 +76,9 @@
     <ClInclude Include="ShaderManager.h">
       <Filter>Core\Graphics</Filter>
     </ClInclude>
+    <ClInclude Include="AssimpImport.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AhzEngine.rc">
@@ -132,6 +135,9 @@
     </ClCompile>
     <ClCompile Include="ShaderManager.cpp">
       <Filter>Core\Graphics</Filter>
+    </ClCompile>
+    <ClCompile Include="AssimpImport.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -153,7 +153,7 @@ void Renderer::CreateViewAndPerspective() noexcept
 {
 	// Use DirectXMath to create view and perspective matrices.
 
-	DirectX::XMVECTOR eye = DirectX::XMVectorSet(0.0f, -0.25f, -1.5f, 0.f);
+	DirectX::XMVECTOR eye = DirectX::XMVectorSet(0.0f, 0.25f, -3.5f, 0.f);
 	DirectX::XMVECTOR at = DirectX::XMVectorSet(0.0f, 0.0f, 0.0f, 0.f);
 	DirectX::XMVECTOR up = DirectX::XMVectorSet(0.0f, 1.0f, 0.0f, 0.f);
 
