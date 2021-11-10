@@ -35,7 +35,7 @@ SceneElement* AssimpImport::ImportFBX(const std::string& pFile, ID3D11Device* de
 			});
 	}
 
-	std::vector<unsigned short> meshIndices;
+	std::vector<uint32_t> meshIndices;
 	meshIndices.reserve((pMesh->mNumFaces * (size_t)3));
 	for (unsigned int i = 0; i < pMesh->mNumFaces; i++)
 	{

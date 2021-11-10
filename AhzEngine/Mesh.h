@@ -17,7 +17,7 @@ public:
 		DirectX::XMFLOAT3 normal;
 	};
 
-	Mesh(std::vector<VertexData>, std::vector<unsigned short>) noexcept;
+	Mesh(std::vector<VertexData>, std::vector<uint32_t>) noexcept;
 
 	HRESULT LoadDataToGPU(ID3D11Device *) noexcept;
 	//void UnloadDataFromGPU() noexcept;
@@ -25,7 +25,7 @@ public:
 
 
 	std::vector<VertexData> vertices;
-	std::vector<unsigned short> indices;
+	std::vector<uint32_t> indices;
 	bool dataLoaded = false;
 	Microsoft::WRL::ComPtr<ID3D11Buffer>		pVertexBuffer = nullptr;
 	Microsoft::WRL::ComPtr<ID3D11Buffer>		pIndexBuffer = nullptr;

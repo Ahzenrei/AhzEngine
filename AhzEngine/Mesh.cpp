@@ -1,6 +1,6 @@
 #include "Mesh.h"
 
-Mesh::Mesh(std::vector<VertexData> _vertices, std::vector<unsigned short> _indices) noexcept
+Mesh::Mesh(std::vector<VertexData> _vertices, std::vector<uint32_t> _indices) noexcept
 {
 	vertices = _vertices;
 	indices = _indices;
@@ -30,7 +30,7 @@ HRESULT Mesh::LoadDataToGPU(ID3D11Device* device) noexcept
 	);
 
 	CD3D11_BUFFER_DESC iDesc(
-		(UINT)indices.size()* sizeof(unsigned short),
+		(UINT)indices.size()* sizeof(uint32_t),
 		D3D11_BIND_INDEX_BUFFER
 	);
 

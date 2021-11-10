@@ -9,7 +9,7 @@ void Engine::Init(HWND hWnd) noexcept
 	deviceResources.Init(hWnd);
 	renderer.Init(&deviceResources);
 
-	cube = AssimpImport::ImportFBX("SuzanneHigh.fbx", deviceResources.GetDevice());
+	cube = AssimpImport::ImportFBX("SuzanneUltra.fbx", deviceResources.GetDevice());
 
 	renderer.AddElementToDraw(cube);
 }

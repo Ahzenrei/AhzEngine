@@ -104,7 +104,7 @@ void Renderer::Render() noexcept
 
 		context->IASetIndexBuffer(
 			mesh->pMesh->pIndexBuffer.Get(),
-			DXGI_FORMAT_R16_UINT,
+			DXGI_FORMAT_R32_UINT,
 			0
 		);
 
@@ -142,7 +142,7 @@ void Renderer::Render() noexcept
 
 		// Calling Draw tells Direct3D to start sending commands to the graphics device.
 		context->DrawIndexed(
-			(UINT)mesh->pMesh->indices.size(),
+			(uint32_t)mesh->pMesh->indices.size(),
 			0,
 			0
 		);
