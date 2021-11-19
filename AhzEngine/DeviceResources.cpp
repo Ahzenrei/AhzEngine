@@ -21,8 +21,8 @@ void DeviceResources::Init(HWND hWnd) noexcept
 	//Swap chain description
 	DXGI_SWAP_CHAIN_DESC sd;
 	ZeroMemory(&sd, sizeof(sd));
-	sd.BufferDesc.Width = 640;
-	sd.BufferDesc.Height = 480;
+	sd.BufferDesc.Width = 1600;
+	sd.BufferDesc.Height = 900;
 	sd.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
 	sd.BufferDesc.RefreshRate.Numerator = 60;
 	sd.BufferDesc.RefreshRate.Denominator = 1;

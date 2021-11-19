@@ -15,7 +15,7 @@ PS_OUTPUT main(PS_INPUT In)
 {
     PS_OUTPUT Output;
 
-    Output.RGBColor = In.Color * saturate(dot(In.Normal, float4(1, 0, 0, 1)));
+    Output.RGBColor = In.Color * saturate(dot(In.Normal, float4(0.57735026919f, 0.57735026919f, 0.57735026919f, 1)));
 
     return Output;
 }
