@@ -79,6 +79,9 @@
     <ClInclude Include="AssimpImport.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="Profiler.h">
+      <Filter>Core\Utils</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="AhzEngine.rc">
@@ -138,6 +141,9 @@
     </ClCompile>
     <ClCompile Include="AssimpImport.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Profiler.cpp">
+      <Filter>Core\Utils</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

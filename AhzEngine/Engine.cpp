@@ -1,5 +1,6 @@
 #include "Engine.h"
 #include "AssimpImport.h"
+#include "Profiler.h"
 
 Renderer Engine::renderer;
 DeviceResources Engine::deviceResources;
@@ -33,7 +34,11 @@ void Engine::DoFrame() noexcept
 
 	UpdateSceneElements();
 
-	RenderScene();
+	{
+		Profiler p("Render");
+		RenderScene();
+	}
+
 
 	SwapBuffers();
 }
