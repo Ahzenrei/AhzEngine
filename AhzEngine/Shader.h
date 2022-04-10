@@ -10,7 +10,7 @@ class Shader
 {
 public:
 	Shader() = delete;
-	Shader(const wchar_t* vertexShaderPath, const wchar_t* pixelShaderPath, ID3D11Device* device) noexcept;
+	Shader(const wchar_t* vertexShaderPath, const wchar_t* pixelShaderPath, ID3D11Device* device) ;
 	Shader& operator=(const Shader& source) = delete;
 	Shader(const Shader&) = delete;
 	Shader(Shader&&) = default;

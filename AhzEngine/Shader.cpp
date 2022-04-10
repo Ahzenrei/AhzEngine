@@ -4,7 +4,7 @@
 #include <vector>
 
 
-Shader::Shader(const wchar_t* vertexShaderPath, const wchar_t* pixelShaderPath, ID3D11Device* device) noexcept
+Shader::Shader(const wchar_t* vertexShaderPath, const wchar_t* pixelShaderPath, ID3D11Device* device) 
 {
 	assert(vertexShaderPath != nullptr && pixelShaderPath != nullptr && device != nullptr);
 

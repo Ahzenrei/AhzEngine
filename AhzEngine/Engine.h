@@ -5,14 +5,14 @@
 class Engine
 {
 public:
-	void Init(HWND hWnd) noexcept;
-	void Shutdown() noexcept;
-	void DoFrame() noexcept;
+	void Init(HWND hWnd) ;
+	void Shutdown() ;
+	void DoFrame() ;
 private:
-	void UpdateCamera() noexcept;
-	void UpdateSceneElements() noexcept;
-	void RenderScene() noexcept;
-	void SwapBuffers() noexcept;
+	void UpdateCamera() ;
+	void UpdateSceneElements() ;
+	void RenderScene() ;
+	void SwapBuffers() ;
 
 	//Here until I make an appropriate class
 	SceneElement* cube = nullptr;

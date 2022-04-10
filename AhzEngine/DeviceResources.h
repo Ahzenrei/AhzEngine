@@ -7,16 +7,16 @@ class DeviceResources
 {
 public:
 
-	void Init(HWND hWnd) noexcept;
-	void Shutdown() noexcept;
-	ID3D11Device* GetDevice() noexcept;
-	ID3D11DeviceContext* GetDeviceContext() noexcept;
-	IDXGISwapChain* GetSwapChain() noexcept;
-	ID3D11RenderTargetView* GetRenderTarget() noexcept;
-	ID3D11DepthStencilView* GetDepthStencil() noexcept;
+	void Init(HWND hWnd) ;
+	void Shutdown() ;
+	ID3D11Device* GetDevice() ;
+	ID3D11DeviceContext* GetDeviceContext() ;
+	IDXGISwapChain* GetSwapChain() ;
+	ID3D11RenderTargetView* GetRenderTarget() ;
+	ID3D11DepthStencilView* GetDepthStencil() ;
 
-	float GetAspectRatio() noexcept;
-	void PresentBackBuffer() noexcept;
+	float GetAspectRatio() ;
+	void PresentBackBuffer() ;
 
 
 private:

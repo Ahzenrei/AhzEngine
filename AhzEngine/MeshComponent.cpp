@@ -1,6 +1,6 @@
 #include "MeshComponent.h"
 
-MeshComponent::MeshComponent(Mesh * _mesh, Material * _mat, ID3D11Device* device) noexcept
+MeshComponent::MeshComponent(Mesh * _mesh, Material * _mat, ID3D11Device* device) 
 	:	pMesh(_mesh), pMat(_mat)
 {
 	DirectX::XMStoreFloat4x4(&model, DirectX::XMMatrixIdentity());
@@ -27,17 +27,17 @@ MeshComponent::~MeshComponent()
 {
 }
 
-Component::ComponentType MeshComponent::GetComponentType() const noexcept
+Component::ComponentType MeshComponent::GetComponentType() const 
 {
 	return Component::ComponentType::Mesh;
 }
 
-void MeshComponent::UpdateModelMatrice(DirectX::XMMATRIX _model) noexcept
+void MeshComponent::UpdateModelMatrice(DirectX::XMMATRIX _model) 
 {
 	DirectX::XMStoreFloat4x4(&model, _model);
 }
 
-DirectX::XMFLOAT4X4 MeshComponent::GetModelMatrice() noexcept
+DirectX::XMFLOAT4X4 MeshComponent::GetModelMatrice() 
 {
 	return model;
 }

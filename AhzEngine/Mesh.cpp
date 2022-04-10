@@ -1,12 +1,12 @@
 #include "Mesh.h"
 
-Mesh::Mesh(std::vector<VertexData> _vertices, std::vector<uint32_t> _indices) noexcept
+Mesh::Mesh(std::vector<VertexData> _vertices, std::vector<uint32_t> _indices) 
 {
 	vertices = _vertices;
 	indices = _indices;
 }
 
-HRESULT Mesh::LoadDataToGPU(ID3D11Device* device) noexcept
+HRESULT Mesh::LoadDataToGPU(ID3D11Device* device) 
 {
 	HRESULT hr = S_OK;
 

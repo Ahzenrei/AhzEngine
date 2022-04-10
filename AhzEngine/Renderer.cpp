@@ -3,7 +3,7 @@
 #include <DirectXMath.h>
 #include <cmath>
 
-void Renderer::Init(DeviceResources* _pDeviceResources) noexcept
+void Renderer::Init(DeviceResources* _pDeviceResources) 
 {
 	pDeviceResources = _pDeviceResources;
 
@@ -28,16 +28,16 @@ void Renderer::Init(DeviceResources* _pDeviceResources) noexcept
 
 }
 
-void Renderer::Shutdown() noexcept
+void Renderer::Shutdown() 
 {
 }
 
-bool Renderer::IsInitialized() const noexcept
+bool Renderer::IsInitialized() const 
 {
 	return pDeviceResources != nullptr;
 }
 
-void Renderer::Render() noexcept
+void Renderer::Render() 
 {
 	// Use the Direct3D device context to draw.
 	ID3D11DeviceContext* context = pDeviceResources->GetDeviceContext();
@@ -149,7 +149,7 @@ void Renderer::Render() noexcept
 	}
 }
 
-void Renderer::CreateViewAndPerspective() noexcept
+void Renderer::CreateViewAndPerspective() 
 {
 	// Use DirectXMath to create view and perspective matrices.
 
@@ -184,12 +184,12 @@ void Renderer::CreateViewAndPerspective() noexcept
 	);
 }
 
-void Renderer::UpdateCamera() noexcept
+void Renderer::UpdateCamera() 
 {
 
 }
 
-void Renderer::AddElementToDraw(SceneElement* element) noexcept
+void Renderer::AddElementToDraw(SceneElement* element) 
 {
 	assert(element != nullptr);
 

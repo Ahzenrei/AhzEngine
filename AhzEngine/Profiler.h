@@ -6,7 +6,7 @@
 class Profiler
 {
 public:
-	Profiler(const char* name) noexcept;
+	Profiler(const char* name) ;
 	~Profiler();
 
 private:

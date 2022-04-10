@@ -16,7 +16,7 @@ void LogError(HRESULT hr)
 	PostQuitMessage(-1);
 }
 
-void DeviceResources::Init(HWND hWnd) noexcept
+void DeviceResources::Init(HWND hWnd) 
 {
 	//Swap chain description
 	DXGI_SWAP_CHAIN_DESC sd;
@@ -146,7 +146,7 @@ void DeviceResources::Init(HWND hWnd) noexcept
 	);
 }
 
-void DeviceResources::Shutdown() noexcept
+void DeviceResources::Shutdown() 
 {
 	pDepthStencilView.Reset();
 	pDepthStencil.Reset();
@@ -157,37 +157,37 @@ void DeviceResources::Shutdown() noexcept
 	pDevice.Reset();
 }
 
-ID3D11Device* DeviceResources::GetDevice() noexcept
+ID3D11Device* DeviceResources::GetDevice() 
 {
 	return pDevice.Get();
 }
 
-ID3D11DeviceContext* DeviceResources::GetDeviceContext() noexcept
+ID3D11DeviceContext* DeviceResources::GetDeviceContext() 
 {
 	return pContext.Get();
 }
 
-IDXGISwapChain* DeviceResources::GetSwapChain() noexcept
+IDXGISwapChain* DeviceResources::GetSwapChain() 
 {
 	return pSwap.Get();
 }
 
-ID3D11RenderTargetView* DeviceResources::GetRenderTarget() noexcept
+ID3D11RenderTargetView* DeviceResources::GetRenderTarget() 
 {
 	return pRenderTarget.Get();
 }
 
-ID3D11DepthStencilView* DeviceResources::GetDepthStencil() noexcept
+ID3D11DepthStencilView* DeviceResources::GetDepthStencil() 
 {
 	return pDepthStencilView.Get();
 }
 
-float DeviceResources::GetAspectRatio() noexcept
+float DeviceResources::GetAspectRatio() 
 {
 	return viewport.Width / viewport.Height;
 }
 
-void DeviceResources::PresentBackBuffer() noexcept
+void DeviceResources::PresentBackBuffer() 
 {
 	pSwap->Present(1, 0);
 }

@@ -5,7 +5,7 @@
 Renderer Engine::renderer;
 DeviceResources Engine::deviceResources;
 
-void Engine::Init(HWND hWnd) noexcept
+void Engine::Init(HWND hWnd) 
 {
 	deviceResources.Init(hWnd);
 	renderer.Init(&deviceResources);
@@ -15,7 +15,7 @@ void Engine::Init(HWND hWnd) noexcept
 	renderer.AddElementToDraw(cube);
 }
 
-void Engine::Shutdown() noexcept
+void Engine::Shutdown() 
 {
 	renderer.Shutdown();
 	deviceResources.Shutdown();
@@ -28,7 +28,7 @@ void Engine::Shutdown() noexcept
 	delete(cube);
 }
 
-void Engine::DoFrame() noexcept
+void Engine::DoFrame() 
 {
 	UpdateCamera();
 
@@ -43,12 +43,12 @@ void Engine::DoFrame() noexcept
 	SwapBuffers();
 }
 
-void Engine::UpdateCamera() noexcept
+void Engine::UpdateCamera() 
 {
 	renderer.UpdateCamera();
 }
 
-void Engine::UpdateSceneElements() noexcept
+void Engine::UpdateSceneElements() 
 {
 	// Rotate the cube 1 degree per frame.
 	auto mesh = dynamic_cast<MeshComponent*>(cube->GetComponent(Component::ComponentType::Mesh));
@@ -65,12 +65,12 @@ void Engine::UpdateSceneElements() noexcept
 	if (frameCount == MAXUINT)  frameCount = 0;
 }
 
-void Engine::RenderScene() noexcept
+void Engine::RenderScene() 
 {
 	renderer.Render();
 }
 
-void Engine::SwapBuffers() noexcept
+void Engine::SwapBuffers() 
 {
 	deviceResources.PresentBackBuffer();
 }

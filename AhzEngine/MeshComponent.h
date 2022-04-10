@@ -7,12 +7,12 @@
 class MeshComponent : public Component
 {
 public:
-	MeshComponent(Mesh * _mesh, Material * _mat, ID3D11Device* device) noexcept;
+	MeshComponent(Mesh * _mesh, Material * _mat, ID3D11Device* device) ;
 	~MeshComponent();
 
-	ComponentType GetComponentType() const noexcept override;
-	void UpdateModelMatrice(DirectX::XMMATRIX _model) noexcept;
-	DirectX::XMFLOAT4X4 GetModelMatrice() noexcept;
+	ComponentType GetComponentType() const  override;
+	void UpdateModelMatrice(DirectX::XMMATRIX _model) ;
+	DirectX::XMFLOAT4X4 GetModelMatrice() ;
 
 	Mesh * pMesh;
 	Material * pMat;

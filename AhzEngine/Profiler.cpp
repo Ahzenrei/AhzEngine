@@ -1,6 +1,6 @@
 #include "Profiler.h"
 
-Profiler::Profiler(const char* name) noexcept
+Profiler::Profiler(const char* name) 
 	: name(name), start (std::chrono::high_resolution_clock::now())
 {
 }

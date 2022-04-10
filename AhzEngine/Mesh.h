@@ -17,10 +17,10 @@ public:
 		DirectX::XMFLOAT3 normal;
 	};
 
-	Mesh(std::vector<VertexData>, std::vector<uint32_t>) noexcept;
+	Mesh(std::vector<VertexData>, std::vector<uint32_t>) ;
 
-	HRESULT LoadDataToGPU(ID3D11Device *) noexcept;
-	//void UnloadDataFromGPU() noexcept;
+	HRESULT LoadDataToGPU(ID3D11Device *) ;
+	//void UnloadDataFromGPU() ;
 
 
 

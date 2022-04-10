@@ -5,6 +5,6 @@
 class AssimpImport
 {
 public:
-	static SceneElement* ImportFBX(const std::string& pFile, ID3D11Device* device) noexcept;
+	static SceneElement* ImportFBX(const std::string& pFile, ID3D11Device* device) ;
 };
 

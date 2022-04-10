@@ -9,6 +9,6 @@ class Material
 {
 public:
 	Material() = delete;
-	Material(Shader*) noexcept;
+	Material(Shader*) ;
 	Shader* shader = nullptr;
 };

@@ -16,13 +16,13 @@ public:
 		DirectX::XMFLOAT4X4 projection;
 	};
 
-	bool IsInitialized() const noexcept;
-	void Init(DeviceResources*) noexcept;
-	void Shutdown() noexcept;
-	void Render() noexcept;
-	void CreateViewAndPerspective() noexcept;
-	void UpdateCamera() noexcept;
-	void AddElementToDraw(SceneElement * element) noexcept;
+	bool IsInitialized() const ;
+	void Init(DeviceResources*) ;
+	void Shutdown() ;
+	void Render() ;
+	void CreateViewAndPerspective() ;
+	void UpdateCamera() ;
+	void AddElementToDraw(SceneElement * element) ;
 
 	DeviceResources* pDeviceResources = nullptr;
 

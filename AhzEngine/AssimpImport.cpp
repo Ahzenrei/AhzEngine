@@ -3,7 +3,7 @@
 #include <assimp/postprocess.h>
 #include <assimp/scene.h>
 
-SceneElement* AssimpImport::ImportFBX(const std::string& pFile, ID3D11Device* device) noexcept
+SceneElement* AssimpImport::ImportFBX(const std::string& pFile, ID3D11Device* device) 
 {
 	Assimp::Importer importer;
 

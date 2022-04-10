@@ -9,9 +9,9 @@
 class SceneElement
 {
 public:
-	void AddComponent(Component * component) noexcept;
-	bool HasComponent(Component::ComponentType) const noexcept;
-	Component* GetComponent(Component::ComponentType) noexcept;
+	void AddComponent(Component * component) ;
+	bool HasComponent(Component::ComponentType) const ;
+	Component* GetComponent(Component::ComponentType) ;
 
 private:
 	std::unordered_map<Component::ComponentType, Component*> components;

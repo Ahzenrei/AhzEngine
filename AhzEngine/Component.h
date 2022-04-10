@@ -6,6 +6,6 @@ class Component
 public:
 	enum class ComponentType {Default, Mesh};
 
-	virtual ComponentType GetComponentType() const noexcept;
+	virtual ComponentType GetComponentType() const ;
 };
 
